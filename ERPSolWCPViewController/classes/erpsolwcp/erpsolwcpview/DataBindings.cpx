@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.1.3.10.47" id="DataBindings"
+             SeparateXMLFiles="false" Package="erpsolwcp.erpsolwcpview" ClientType="Generic">
+  <pageMap>
+    <page path="/WTY_0007.jsf" usageId="erpsolwcp_erpsolwcpview_WTY_0007PageDef"/>
+    <page path="/WEB-INF/ERPSOLWCPBTF.xml#ERPSOLWCPBTF@ExeSolWCPTransaction"
+          usageId="erpsolwcp_erpsolwcpview_ERPSOLWCPBTF_ERPSOLWCPBTF_ExecuteWithParamsPageDef"/>
+    <page path="/ERPSolWCPMain.jsf" usageId="erpsolwcp_erpsolwcpview_ERPSolWCPMainPageDef"/>
+    <page path="/WEB-INF/ERPSOLWCPBTF.xml#ERPSOLWCPBTF@RollbackBeforeFormWCP"
+          usageId="erpsolwcp_erpsolwcpview_ERPSOLWCPBTF_ERPSOLWCPBTF_RollbackPageDef"/>
+    <page path="/WEB-INF/ERPSOLWCPBTF.xml#ERPSOLWCPBTF@RollbackWCP"
+          usageId="erpsolwcp_erpsolwcpview_ERPSOLWCPBTF_ERPSOLWCPBTF_RollbackPageDef1"/>
+    <page path="/WEB-INF/ERPSOLWCPBTF.xml#ERPSOLWCPBTF@RollbackCloseFormWCP"
+          usageId="erpsolwcp_erpsolwcpview_ERPSOLWCPBTF_ERPSOLWCPBTF_RollbackPageDef11"/>
+    <page path="/WEB-INF/ERPSOLWCPBTF.xml#ERPSOLWCPBTF@ERPSolExecuteWithParamsSetup"
+          usageId="erpsolwcp_erpsolwcpview_ERPSOLWCPBTF_ERPSOLWCPBTF_ExecuteWithParamsPageDef1"/>
+    <page path="/WTY_0007_SEARCH.jsf" usageId="erpsolwcp_erpsolwcpview_WTY_0007_SEARCHPageDef"/>
+    <page path="/WTY_SCAN.jsf" usageId="erpsolwcp_erpsolwcpview_WTY_SCANPageDef"/>
+    <page path="/WEB-INF/ERPSOLWCPBTF.xml#ERPSOLWCPBTF@InSetPackCreateNewWTY-0007"
+          usageId="erpsolwcp_erpsolwcpview_ERPSOLWCPBTF_ERPSOLWCPBTF_CreateInsertPageDef"/>
+    <page path="/WEB-INF/ERPSOLWCPBTF.xml#ERPSOLWCPBTF@CommitWTY-0007-SCAN"
+          usageId="erpsolwcp_erpsolwcpview_ERPSOLWCPBTF_ERPSOLWCPBTF_CommitPageDef"/>
+    <page path="/WTY_0002.jsf" usageId="erpsolwcp_erpsolwcpview_WTY_0002PageDef"/>
+    <page path="/WEB-INF/ERPSOLWCPBTF.xml#ERPSOLWCPBTF@ACT-ERP-WTY-0002-COMMIT"
+          usageId="erpsolwcp_erpsolwcpview_ERPSOLWCPBTF_ERPSOLWCPBTF_CommitPageDef1"/>
+    <page path="/WTY_0002_SCAN.jsf" usageId="erpsolwcp_erpsolwcpview_WTY_0002_SCANPageDef"/>
+    <page path="/WEB-INF/ERPSOLWCPBTF.xml#ERPSOLWCPBTF@CreateInsertWTY-0002"
+          usageId="erpsolwcp_erpsolwcpview_ERPSOLWCPBTF_ERPSOLWCPBTF_CreateInsertPageDef1"/>
+    <page path="/WTY_0016.jsf" usageId="erpsolwcp_erpsolwcpview_WTY_0016PageDef"/>
+    <page path="/WEB-INF/ERPSOLWCPBTF.xml#ERPSOLWCPBTF@ExeSolWCPReverse"
+          usageId="erpsolwcp_erpsolwcpview_ERPSOLWCPBTF_ERPSOLWCPBTF_ExecuteWithParamsPageDef11"/>
+    <page path="/WEB-INF/ERPSOLWCPBTF.xml#ERPSOLWCPBTF@ExeSolWCPReport"
+          usageId="erpsolwcp_erpsolwcpview_ERPSOLWCPBTF_ERPSOLWCPBTF_ExecuteWithParamsPageDef111"/>
+    <page path="/WTY_0002_SEARCH.jsf" usageId="erpsolwcp_erpsolwcpview_WTY_0002_SEARCHPageDef"/>
+    <page path="/WF_0003.jsf" usageId="erpsolwcp_erpsolwcpview_WF_0003PageDef"/>
+    <page path="/WTY_0003.jsf" usageId="erpsolwcp_erpsolwcpview_WTY_0003PageDef"/>
+    <page path="/WTY_0003_SEARCH.jsf" usageId="erpsolwcp_erpsolwcpview_WTY_0003_SEARCHPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="erpsolwcp_erpsolwcpview_WTY_0007PageDef" path="erpsolwcp.erpsolwcpview.pageDefs.WTY_0007PageDef"/>
+    <page id="erpsolwcp_erpsolwcpview_ERPSOLWCPBTF_ERPSOLWCPBTF_ExecuteWithParamsPageDef"
+          path="erpsolwcp.erpsolwcpview.pageDefs.ERPSOLWCPBTF_ERPSOLWCPBTF_ExecuteWithParamsPageDef"/>
+    <page id="erpsolwcp_erpsolwcpview_ERPSolWCPMainPageDef"
+          path="erpsolwcp.erpsolwcpview.pageDefs.ERPSolWCPMainPageDef"/>
+    <page id="erpsolwcp_erpsolwcpview_ERPSOLWCPBTF_ERPSOLWCPBTF_RollbackPageDef"
+          path="erpsolwcp.erpsolwcpview.pageDefs.ERPSOLWCPBTF_ERPSOLWCPBTF_RollbackPageDef"/>
+    <page id="erpsolwcp_erpsolwcpview_ERPSOLWCPBTF_ERPSOLWCPBTF_RollbackPageDef1"
+          path="erpsolwcp.erpsolwcpview.pageDefs.ERPSOLWCPBTF_ERPSOLWCPBTF_RollbackPageDef1"/>
+    <page id="erpsolwcp_erpsolwcpview_ERPSOLWCPBTF_ERPSOLWCPBTF_RollbackPageDef11"
+          path="erpsolwcp.erpsolwcpview.pageDefs.ERPSOLWCPBTF_ERPSOLWCPBTF_RollbackPageDef11"/>
+    <page id="erpsolwcp_erpsolwcpview_ERPSOLWCPBTF_ERPSOLWCPBTF_ExecuteWithParamsPageDef1"
+          path="erpsolwcp.erpsolwcpview.pageDefs.ERPSOLWCPBTF_ERPSOLWCPBTF_ExecuteWithParamsPageDef1"/>
+    <page id="erpsolwcp_erpsolwcpview_WTY_0007_SEARCHPageDef"
+          path="erpsolwcp.erpsolwcpview.pageDefs.WTY_0007_SEARCHPageDef"/>
+    <page id="erpsolwcp_erpsolwcpview_WTY_SCANPageDef" path="erpsolwcp.erpsolwcpview.pageDefs.WTY_SCANPageDef"/>
+    <page id="erpsolwcp_erpsolwcpview_ERPSOLWCPBTF_ERPSOLWCPBTF_CreateInsertPageDef"
+          path="erpsolwcp.erpsolwcpview.pageDefs.ERPSOLWCPBTF_ERPSOLWCPBTF_CreateInsertPageDef"/>
+    <page id="erpsolwcp_erpsolwcpview_ERPSOLWCPBTF_ERPSOLWCPBTF_CommitPageDef"
+          path="erpsolwcp.erpsolwcpview.pageDefs.ERPSOLWCPBTF_ERPSOLWCPBTF_CommitPageDef"/>
+    <page id="erpsolwcp_erpsolwcpview_WTY_0002PageDef" path="erpsolwcp.erpsolwcpview.pageDefs.WTY_0002PageDef"/>
+    <page id="erpsolwcp_erpsolwcpview_ERPSOLWCPBTF_ERPSOLWCPBTF_CommitPageDef1"
+          path="erpsolwcp.erpsolwcpview.pageDefs.ERPSOLWCPBTF_ERPSOLWCPBTF_CommitPageDef1"/>
+    <page id="erpsolwcp_erpsolwcpview_WTY_0002_SCANPageDef"
+          path="erpsolwcp.erpsolwcpview.pageDefs.WTY_0002_SCANPageDef"/>
+    <page id="erpsolwcp_erpsolwcpview_ERPSOLWCPBTF_ERPSOLWCPBTF_CreateInsertPageDef1"
+          path="erpsolwcp.erpsolwcpview.pageDefs.ERPSOLWCPBTF_ERPSOLWCPBTF_CreateInsertPageDef1"/>
+    <page id="erpsolwcp_erpsolwcpview_WTY_0016PageDef" path="erpsolwcp.erpsolwcpview.pageDefs.WTY_0016PageDef"/>
+    <page id="erpsolwcp_erpsolwcpview_ERPSOLWCPBTF_ERPSOLWCPBTF_ExecuteWithParamsPageDef11"
+          path="erpsolwcp.erpsolwcpview.pageDefs.ERPSOLWCPBTF_ERPSOLWCPBTF_ExecuteWithParamsPageDef11"/>
+    <page id="erpsolwcp_erpsolwcpview_ERPSOLWCPBTF_ERPSOLWCPBTF_ExecuteWithParamsPageDef111"
+          path="erpsolwcp.erpsolwcpview.pageDefs.ERPSOLWCPBTF_ERPSOLWCPBTF_ExecuteWithParamsPageDef111"/>
+    <page id="erpsolwcp_erpsolwcpview_WTY_0002_SEARCHPageDef"
+          path="erpsolwcp.erpsolwcpview.pageDefs.WTY_0002_SEARCHPageDef"/>
+    <page id="erpsolwcp_erpsolwcpview_WF_0003PageDef" path="erpsolwcp.erpsolwcpview.pageDefs.WF_0003PageDef"/>
+    <page id="erpsolwcp_erpsolwcpview_WTY_0003PageDef" path="erpsolwcp.erpsolwcpview.pageDefs.WTY_0003PageDef"/>
+    <page id="erpsolwcp_erpsolwcpview_WTY_0003_SEARCHPageDef"
+          path="erpsolwcp.erpsolwcpview.pageDefs.WTY_0003_SEARCHPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="ERPSolWCPAppModuleDataControl" Package="erpsolwcp.erpsolwcpmodel.erpsolwcpam"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="ERPSolWCPAppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="ERPSolTempAppModuleDataControl" Package="erpsoltemp.erpsoltempmodel.erpsoltempam"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="ERPSolTempAppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

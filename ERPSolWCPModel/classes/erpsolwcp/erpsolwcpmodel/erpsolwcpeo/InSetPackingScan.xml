@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="InSetPackingScan"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="IN_SET_PACKING_SCAN"
+  AliasName="InSetPackingScan"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="InSetPackingScanSeq"
+    IsNotNull="true"
+    ColumnName="IN_SET_PACKING_SCAN_SEQ"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="IN_SET_PACKING_SCAN"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="BoxNo"
+    Precision="50"
+    ColumnName="BOX_NO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="IN_SET_PACKING_SCAN">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ImeiNo"
+    Precision="20"
+    ColumnName="IMEI_NO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="IN_SET_PACKING_SCAN">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Lineno"
+    Precision="5"
+    Scale="0"
+    ColumnName="LINENO"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="IN_SET_PACKING_SCAN"/>
+  <Attribute
+    Name="CreatedBy"
+    Precision="50"
+    ColumnName="CREATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="IN_SET_PACKING_SCAN">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedDate"
+    ColumnName="CREATED_DATE"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="IN_SET_PACKING_SCAN"/>
+  <Attribute
+    Name="ModifiedBy"
+    Precision="50"
+    ColumnName="MODIFIED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="IN_SET_PACKING_SCAN">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ModifiedDate"
+    ColumnName="MODIFIED_DATE"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="IN_SET_PACKING_SCAN"/>
+  <Attribute
+    Name="Packingseq"
+    ColumnName="PACKINGSEQ"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="IN_SET_PACKING_SCAN"/>
+  <AccessorAttribute
+    Name="InSetPacking"
+    Association="erpsolwcp.erpsolwcpmodel.erpsolwcpassoc.InSetPAckingInSetPackingScanpackingseqAssoc"
+    AssociationEnd="erpsolwcp.erpsolwcpmodel.erpsolwcpassoc.InSetPAckingInSetPackingScanpackingseqAssoc.InSetPacking"
+    AssociationOtherEnd="erpsolwcp.erpsolwcpmodel.erpsolwcpassoc.InSetPAckingInSetPackingScanpackingseqAssoc.InSetPackingScan"
+    Type="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSetPackingImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="PkInSetPackingScan"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PK_IN_SET_PACKING_SCAN"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSetPackingScan.InSetPackingScanSeq"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_InSetPackingScan">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_IN_SET_PACKING"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_IN_SET_PACKING_SCAN"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolwcp.erpsolwcpmodel.erpsolwcpeo.InSetPackingScan.Packingseq"/>
+    </AttrArray>
+  </Key>
+</Entity>

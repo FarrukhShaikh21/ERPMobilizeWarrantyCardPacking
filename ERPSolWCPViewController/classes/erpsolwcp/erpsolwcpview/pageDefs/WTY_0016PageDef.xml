@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="WTY_0016PageDef"
+                Package="erpsolwcp.erpsolwcpview.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="VWWarrantyCardReportRO" RangeSize="25" DataControl="ERPSolWCPAppModuleDataControl"
+              id="VWWarrantyCardReportROIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="VWWarrantyCardReportROIterator" id="Pk">
+      <AttrNames>
+        <Item Value="Pk"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="VWWarrantyCardReportROIterator" StaticList="false" Uses="LovtxtDocTypeId" id="txtDocTypeId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <listOfValues IterBinding="VWWarrantyCardReportROIterator" StaticList="false" Uses="LovtxtRecordID"
+                  id="txtRecordID"/>
+    <attributeValues IterBinding="VWWarrantyCardReportROIterator" id="txtRecordDescription">
+      <AttrNames>
+        <Item Value="txtRecordDescription"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="doERPSolUnsubmitWCP" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doERPSolUnsubmitWCP" IsViewObjectMethod="true" DataControl="ERPSolWCPAppModuleDataControl"
+                  InstanceName="data.ERPSolWCPAppModuleDataControl.VWWarrantyCardReportRO"
+                  ReturnName="data.ERPSolWCPAppModuleDataControl.methodResults.doERPSolUnsubmitWCP_ERPSolWCPAppModuleDataControl_VWWarrantyCardReportRO_doERPSolUnsubmitWCP_result"/>
+  </bindings>
+</pageDefinition>
