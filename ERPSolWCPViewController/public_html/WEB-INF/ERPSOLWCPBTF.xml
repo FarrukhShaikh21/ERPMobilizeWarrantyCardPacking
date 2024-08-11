@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="ERPSOLWCPBTF">
+    <default-activity>doERPSolWCPSessionGlobals</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <task-flow-reentry>
+      <reentry-allowed/>
+    </task-flow-reentry>
+    <input-parameter-definition id="__9">
+      <name>P_ADF_USERCODE</name>
+      <value>#{pageFlowScope.ERPSolWCPPageFlowBean.ERPSolStrUserCode}</value>
+      <class>erpsolwcp.erpsolwcpview.erpsolwcpclass.ERPSolWCPBean</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__14">
+      <name>P_ADF_USER_LOCATIONCODE</name>
+      <value>#{pageFlowScope.ERPSolWCPPageFlowBean.ERPSolStrUserLocationCode}</value>
+      <class>erpsolwcp.erpsolwcpview.erpsolwcpclass.ERPSolWCPBean</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__15">
+      <name>P_ADF_USER_STORECODE</name>
+      <value>#{pageFlowScope.ERPSolWCPPageFlowBean.ERPSolStrUserStoreCode}</value>
+      <class>erpsolwcp.erpsolwcpview.erpsolwcpclass.ERPSolWCPBean</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__16">
+      <name>P_ADF_USER_REGIONCODE</name>
+      <value>#{pageFlowScope.ERPSolWCPPageFlowBean.ERPSolStrUserRegionCode}</value>
+      <class>erpsolwcp.erpsolwcpview.erpsolwcpclass.ERPSolWCPBean</class>
+    </input-parameter-definition>
+    <managed-bean id="__3">
+      <managed-bean-name>ERPSolTempBean</managed-bean-name>
+      <managed-bean-class>erpsoltemp.erpsoltempview.erptempclass.ERPSolutionTemplateBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__4">
+      <managed-bean-name>ERPSolWCPPageFlowBean</managed-bean-name>
+      <managed-bean-class>erpsolwcp.erpsolwcpview.erpsolwcpclass.ERPSolWCPBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <exception-handler>WTY_EXCEPTION</exception-handler>
+    <task-flow-return id="ERPSOL-RETURN-FROM-WCP">
+      <outcome>
+        <name>ERPSOL-RETURN-FROM-WCP</name>
+      </outcome>
+    </task-flow-return>
+    <method-call id="doERPSolWCPSessionGlobals">
+      <method>#{pageFlowScope.ERPSolWCPPageFlowBean.doSetERPSolWCPSessionGlobals}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-GOTO-WCP-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExeSolWCPTransaction">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-GOTO-WCP-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="WTY_0007">
+      <page>/WTY_0007.jsf</page>
+    </view>
+    <view id="ERPSolWCPMain">
+      <page>/ERPSolWCPMain.jsf</page>
+    </view>
+    <method-call id="doERPGotoWCPActivity">
+      <method>#{pageFlowScope.ERPSolTempBean.doGotoERPSolActivity}</method>
+      <outcome>
+        <to-string/>
+      </outcome>
+    </method-call>
+    <method-call id="RollbackBeforeFormWCP">
+      <method>#{bindings.Rollback.execute}</method>
+      <outcome>
+        <fixed-outcome>ACTStartERPSolutionTaskFlow</fixed-outcome>
+      </outcome>
+    </method-call>
+    <task-flow-return id="ACT-ERP-SOL-LOGOUT">
+      <outcome>
+        <name>ACT-ERP-SOL-LOGOUT</name>
+      </outcome>
+    </task-flow-return>
+    <method-call id="RollbackWCP">
+      <method>#{bindings.Rollback.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-SOL-LOGOUT</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="RollbackCloseFormWCP">
+      <method>#{bindings.Rollback.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-CLOSE-FORM-WCP</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ERPSolExecuteWithParamsSetup">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-GOTO-WCP-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="WTY_0007_SEARCH">
+      <page>/WTY_0007_SEARCH.jsf</page>
+    </view>
+    <view id="WTY_SCAN">
+      <page>/WTY_SCAN.jsf</page>
+    </view>
+    <method-call id="InSetPackCreateNewWTY-0007">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome>
+        <fixed-outcome>InSetPackCreateNewWTY-0007</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="CommitWTY-0007-SCAN">
+      <method>#{bindings.Commit.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-WTY-0007-SCAN</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="WTY_SHOW_ERROR">
+      <page>/WTY_SHOW_ERROR.jsf</page>
+    </view>
+    <view id="WTY_0002">
+      <page>/WTY_0002.jsf</page>
+    </view>
+    <view id="WTY_0002_SCAN">
+      <page>/WTY_0002_SCAN.jsf</page>
+    </view>
+    <method-call id="ACT-ERP-WTY-0002-COMMIT">
+      <method>#{bindings.Commit.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-WTY-0002-SCAN</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="WTY_EXCEPTION">
+      <page>/WTY_EXCEPTION.jsf</page>
+    </view>
+    <method-call id="CreateInsertWTY-0002">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome>
+        <fixed-outcome>CreateInsertWTY-0002</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="WTY_0016">
+      <page>/WTY_0016.jsf</page>
+    </view>
+    <method-call id="ExeSolWCPReverse">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-GOTO-WCP-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExeSolWCPReport">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-GOTO-WCP-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="WTY_0002_SEARCH">
+      <page>/WTY_0002_SEARCH.jsf</page>
+    </view>
+    <view id="WTY_0003">
+      <page>/WTY_0003.jsf</page>
+    </view>
+    <view id="WTY_0003_SEARCH">
+      <page>/WTY_0003_SEARCH.jsf</page>
+    </view>
+    <control-flow-rule id="__1">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>ACT-ERPSOL-RETURN-FROM-WCP</from-outcome>
+        <to-activity-id>ERPSOL-RETURN-FROM-WCP</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__6">
+      <from-activity-id>doERPSolWCPSessionGlobals</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome>ACT-ERP-GOTO-WCP-MAIN</from-outcome>
+        <to-activity-id>ERPSolExecuteWithParamsSetup</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__10">
+      <from-activity-id>doERPGotoWCPActivity</from-activity-id>
+      <control-flow-case id="__11">
+        <from-outcome>ERP-ACT-WTY-0007</from-outcome>
+        <to-activity-id>InSetPackCreateNewWTY-0007</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__45">
+        <from-outcome>ERP-ACT-WTY-0002</from-outcome>
+        <to-activity-id>CreateInsertWTY-0002</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__52">
+        <from-outcome>ERP-ACT-WTY-0016</from-outcome>
+        <to-activity-id>WTY_0016</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__61">
+        <from-outcome>ERP-ACT-WTY-0003</from-outcome>
+        <to-activity-id>WTY_0003</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__12">
+      <from-activity-id>ExeSolWCPTransaction</from-activity-id>
+      <control-flow-case id="__13">
+        <from-outcome>ACT-ERP-GOTO-WCP-MAIN</from-outcome>
+        <to-activity-id>ExeSolWCPReverse</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__5">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__8">
+        <from-outcome>ACTStartERPSolutionTaskFlow</from-outcome>
+        <to-activity-id>RollbackBeforeFormWCP</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__17">
+      <from-activity-id>RollbackBeforeFormWCP</from-activity-id>
+      <control-flow-case id="__18">
+        <from-outcome>ACTStartERPSolutionTaskFlow</from-outcome>
+        <to-activity-id>doERPGotoWCPActivity</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__19">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__20">
+        <from-outcome>ACT-ERP-SOL-LOGOUT</from-outcome>
+        <to-activity-id>RollbackWCP</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__21">
+      <from-activity-id>RollbackWCP</from-activity-id>
+      <control-flow-case id="__22">
+        <from-outcome>ACT-ERP-SOL-LOGOUT</from-outcome>
+        <to-activity-id>ACT-ERP-SOL-LOGOUT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__23">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__24">
+        <from-outcome>ACT-ERP-CLOSE-FORM-WCP</from-outcome>
+        <to-activity-id>RollbackCloseFormWCP</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__25">
+      <from-activity-id>RollbackCloseFormWCP</from-activity-id>
+      <control-flow-case id="__26">
+        <from-outcome>ACT-ERP-CLOSE-FORM-WCP</from-outcome>
+        <to-activity-id>ERPSolWCPMain</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__27">
+      <from-activity-id>ERPSolExecuteWithParamsSetup</from-activity-id>
+      <control-flow-case id="__28">
+        <from-outcome>ACT-ERP-GOTO-WCP-MAIN</from-outcome>
+        <to-activity-id>ExeSolWCPTransaction</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__31">
+      <from-activity-id>WTY_0007</from-activity-id>
+      <control-flow-case id="__32">
+        <from-outcome>ACT-ERP-SEARCH-WTY-0007</from-outcome>
+        <to-activity-id>WTY_0007_SEARCH</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__29">
+        <from-outcome>ACT-ERP-WTY-0007-SCAN</from-outcome>
+        <to-activity-id>CommitWTY-0007-SCAN</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__40">
+        <from-outcome>ACT-ERP-WTY-0007-SCAN-TEMP</from-outcome>
+        <to-activity-id>WTY_SHOW_ERROR</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__33">
+      <from-activity-id>WTY_0007_SEARCH</from-activity-id>
+      <control-flow-case id="__34">
+        <from-outcome>ACT-ERP-BACK-FROM-SEARCH-WCP-0007</from-outcome>
+        <to-activity-id>WTY_0007</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__30">
+      <from-activity-id>WTY_SCAN</from-activity-id>
+      <control-flow-case id="__35">
+        <from-outcome>ACT-ERP-WTY-0007-SCAN-BACK</from-outcome>
+        <to-activity-id>WTY_0007</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__36">
+      <from-activity-id>InSetPackCreateNewWTY-0007</from-activity-id>
+      <control-flow-case id="__37">
+        <from-outcome>InSetPackCreateNewWTY-0007</from-outcome>
+        <to-activity-id>WTY_0007</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__38">
+      <from-activity-id>CommitWTY-0007-SCAN</from-activity-id>
+      <control-flow-case id="__39">
+        <from-outcome>ACT-ERP-WTY-0007-SCAN</from-outcome>
+        <to-activity-id>WTY_SCAN</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__41">
+      <from-activity-id>WTY_SHOW_ERROR</from-activity-id>
+      <control-flow-case id="__42">
+        <from-outcome>ACT-ERP-WTY-0007-SCAN-TEMP-BACK</from-outcome>
+        <to-activity-id>WTY_0007</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__43">
+      <from-activity-id>WTY_0002</from-activity-id>
+      <control-flow-case id="__44">
+        <from-outcome>ACT-ERP-WTY-0002-SCAN</from-outcome>
+        <to-activity-id>ACT-ERP-WTY-0002-COMMIT</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__57">
+        <from-outcome>ACT-ERP-WTY-0002-SEARCH</from-outcome>
+        <to-activity-id>WTY_0002_SEARCH</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__46">
+      <from-activity-id>WTY_0002_SCAN</from-activity-id>
+      <control-flow-case id="__47">
+        <from-outcome>ACT-ERP-WTY-0002-SCAN-BACK</from-outcome>
+        <to-activity-id>WTY_0002</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__48">
+      <from-activity-id>ACT-ERP-WTY-0002-COMMIT</from-activity-id>
+      <control-flow-case id="__49">
+        <from-outcome>ACT-ERP-WTY-0002-SCAN</from-outcome>
+        <to-activity-id>WTY_0002_SCAN</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__50">
+      <from-activity-id>CreateInsertWTY-0002</from-activity-id>
+      <control-flow-case id="__51">
+        <from-outcome>CreateInsertWTY-0002</from-outcome>
+        <to-activity-id>WTY_0002</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__53">
+      <from-activity-id>ExeSolWCPReverse</from-activity-id>
+      <control-flow-case id="__54">
+        <from-outcome>ACT-ERP-GOTO-WCP-MAIN</from-outcome>
+        <to-activity-id>ExeSolWCPReport</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__55">
+      <from-activity-id>ExeSolWCPReport</from-activity-id>
+      <control-flow-case id="__56">
+        <from-outcome>ACT-ERP-GOTO-WCP-MAIN</from-outcome>
+        <to-activity-id>ERPSolWCPMain</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__58">
+      <from-activity-id>WTY_0002_SEARCH</from-activity-id>
+      <control-flow-case id="__59">
+        <from-outcome>ACT-ERP-WTY-0002-SEARCH-BACK</from-outcome>
+        <to-activity-id>WTY_0002</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__62">
+      <from-activity-id>WTY_0003_SEARCH</from-activity-id>
+      <control-flow-case id="__63">
+        <from-outcome>ACT-ERP-WTY-0003-SEARCH-BACK</from-outcome>
+        <to-activity-id>WTY_0003</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__64">
+      <from-activity-id>WTY_0003</from-activity-id>
+      <control-flow-case id="__65">
+        <from-outcome>ACT-ERP-WTY-0003-SEARCH</from-outcome>
+        <to-activity-id>WTY_0003_SEARCH</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <visibility>
+      <url-invoke-allowed/>
+    </visibility>
+  </task-flow-definition>
+</adfc-config>

@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="WTY-0016.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:pageTemplate viewId="/ERPSolutionTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
+                <f:facet name="erptempmain">
+                    <af:panelFormLayout id="pfl1">
+                        <af:inputText value="#{bindings.Pk.inputValue}" label="#{bindings.Pk.hints.label}"
+                                      required="#{bindings.Pk.hints.mandatory}"
+                                      columns="#{bindings.Pk.hints.displayWidth}"
+                                      maximumLength="#{bindings.Pk.hints.precision}"
+                                      shortDesc="#{bindings.Pk.hints.tooltip}" id="it1" rendered="false">
+                            <f:validator binding="#{bindings.Pk.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.Pk.format}"/>
+                        </af:inputText>
+                        <af:selectOneChoice value="#{bindings.txtDocTypeId.inputValue}"
+                                            label="#{bindings.txtDocTypeId.label}"
+                                            required="#{bindings.txtDocTypeId.hints.mandatory}"
+                                            shortDesc="#{bindings.txtDocTypeId.hints.tooltip}" id="soc1"
+                                            autoSubmit="true">
+                            <f:selectItems value="#{bindings.txtDocTypeId.items}" id="si1"/>
+                            <f:validator binding="#{bindings.txtDocTypeId.validator}"/>
+                        </af:selectOneChoice>
+                        <af:inputComboboxListOfValues id="txtRecordIDId"
+                                                      popupTitle="Search and Select: #{bindings.txtRecordID.hints.label}"
+                                                      value="#{bindings.txtRecordID.inputValue}"
+                                                      label="#{bindings.txtRecordID.hints.label}"
+                                                      model="#{bindings.txtRecordID.listOfValuesModel}"
+                                                      required="#{bindings.txtRecordID.hints.mandatory}"
+                                                      columns="#{bindings.txtRecordID.hints.displayWidth}"
+                                                      shortDesc="#{bindings.txtRecordID.hints.tooltip}"
+                                                      autoSubmit="true" contentStyle="width:100%"
+                                                      partialTriggers="soc1">
+                            <f:validator binding="#{bindings.txtRecordID.validator}"/>
+                            <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolWCPPageFlowBean.doERPSolGetAutoSuggestedUnsubmitWCP}"/>
+                        </af:inputComboboxListOfValues>
+                        <af:inputText value="#{bindings.txtRecordDescription.inputValue}"
+                                      label="#{bindings.txtRecordDescription.hints.label}"
+                                      required="#{bindings.txtRecordDescription.hints.mandatory}"
+                                      columns="#{bindings.txtRecordDescription.hints.displayWidth}"
+                                      maximumLength="#{bindings.txtRecordDescription.hints.precision}"
+                                      shortDesc="#{bindings.txtRecordDescription.hints.tooltip}" id="it2"
+                                      readOnly="true" partialTriggers="txtRecordIDId">
+                            <f:validator binding="#{bindings.txtRecordDescription.validator}"/>
+                        </af:inputText>
+                        <af:button actionListener="#{bindings.doERPSolUnsubmitWCP.execute}" text="Un Supervise"
+                                   disabled="#{!bindings.doERPSolUnsubmitWCP.enabled}" id="b1"/>
+                    </af:panelFormLayout>
+                </f:facet>
+                <f:facet name="erptempleft"/>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>
